@@ -1,7 +1,7 @@
 import { GET_FORECAST_STARTED, GET_FORECAST_SUCCESS, GET_FORECAST_FAILURE } from '../actions'
 
 const initialState = {
-    forecastData: [],
+    forecastData: {},
     isLoading: false,
     hasErrored: false,
     errorData: '',

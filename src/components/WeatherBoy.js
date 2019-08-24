@@ -5,18 +5,16 @@ import { getForecast } from '../actions/weatherBoy'
 
 function WeatherBoy({ data, isLoading, hasErrored, getForecast }) {
 
-    const handleGetWeatherClick = () => {
-        console.log('handleclickfired')
+    const handleClick = () => {
         getForecast(50.040156499999995, 36.3003934)
     }
 
     return <div>
         {isLoading ? <p>Loading...</p> : ''}
+        {isLoading ? <p>Error getting data.</p> : ''}
         <h1>Hi! I'm WeatherBoy!</h1>
-        <p>{data}</p>
-        <button type="button" onClick={handleGetWeatherClick}>
-            CLICK ME TO GET WEATHER DATA!
-        </button>
+        <p>Location - {data.name}</p>
+        <button type="button" onClick={handleClick}>Click to get weather data</button>
     </div>
 }
 
