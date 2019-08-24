@@ -7,7 +7,7 @@ const initialState = {
     errorData: '',
 }
 
-export default function weatherBoy(state = initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
         case GET_FORECAST_STARTED:
             return {

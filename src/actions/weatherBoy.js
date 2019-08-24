@@ -8,7 +8,7 @@ import { OPENWEATHER_APIKEY } from '../config'
 
 import axios from 'axios'
 
-export const getForecast = ({ lat, lon }) => {
+export const getForecast = (lat, lon) => {
     return dispatch => {
         dispatch(getForecastStarted())
         axios

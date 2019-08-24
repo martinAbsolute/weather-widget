@@ -4,7 +4,17 @@ import { connect } from 'react-redux'
 import { getForecast } from '../actions/weatherBoy'
 
 function WeatherBoy() {
-    return <h1>Hi! I'm WeatherBoy!</h1>
+
+    const handleGetWeatherClick = () => {
+        getForecast(50.040156499999995, 36.3003934)
+    }
+
+    return <div>
+        <h1>Hi! I'm WeatherBoy!</h1>
+        <button type="button" onClick={handleGetWeatherClick}>
+            CLICK ME TO GET WEATHER DATA!
+        </button>
+    </div>
 }
 
 const mapStateToProps = state => ({
@@ -14,7 +24,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getForecast: (lat, lon) => dispatch(getForecast(lat, lon))
+    getForecast: (lat, lon) => dispatch(getForecast(lat, lon)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherBoy)
