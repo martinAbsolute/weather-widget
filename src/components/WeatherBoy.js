@@ -6,14 +6,25 @@ import { getForecast } from '../actions/weatherBoy'
 function WeatherBoy({ data, isLoading, hasErrored, getForecast }) {
 
     const handleClick = () => {
-        getForecast(50.040156499999995, 36.3003934)
+        if (navigator.geolocation) {
+            try {
+                navigator.geolocation.getCurrentPosition(pos => {
+                    getForecast(pos.coords.latitude, pos.coords.longitude);
+                });
+            }
+            catch (err) {
+                console.log(err)
+            }
+        } else {
+            console.log('The browser doesn\'t support geolocation.')
+        }
     }
 
     return <div>
-        {isLoading ? <p>Loading...</p> : ''}
-        {isLoading ? <p>Error getting data.</p> : ''}
+        {isLoading && <p>Loading...</p>}
+        {hasErrored && <p>Error getting data.</p>}
         <h1>Hi! I'm WeatherBoy!</h1>
-        <p>Location - {data.name}</p>
+        <p>You are currently in - {data.name}</p>
         <button type="button" onClick={handleClick}>Click to get weather data</button>
     </div>
 }
