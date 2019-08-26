@@ -12,7 +12,7 @@ export const getForecast = (lat, lon) => {
     return dispatch => {
         dispatch(getForecastStarted())
         axios
-            .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${OPENWEATHER_APIKEY}`)
+            .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${OPENWEATHER_APIKEY}&units=metric`)
             .then(res => {
                 dispatch(getForecastSuccess(res.data))
             })
