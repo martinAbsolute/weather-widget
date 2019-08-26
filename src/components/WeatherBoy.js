@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { getForecast } from '../actions/weatherBoy'
 
@@ -27,6 +28,13 @@ function WeatherBoy({ data, isLoading, hasErrored, getForecast }) {
         <p>You are currently in - {data.name}</p>
         <button type="button" onClick={handleClick}>Click to get weather data</button>
     </div>
+}
+
+WeatherBoy.propTypes = {
+    data: PropTypes.object.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    hasErrored: PropTypes.bool.isRequired,
+    getForecast: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
