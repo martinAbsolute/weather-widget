@@ -1,6 +1,10 @@
 # WeatherBoy, a small weather widget
 
 ## Available Scripts
+
+Before running, install the dependencies:
+### `npm run build`
+
 In the project directory, you can run:
 ### `npm run start`
 
